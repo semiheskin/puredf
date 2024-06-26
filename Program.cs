@@ -76,11 +76,8 @@ class Program
                         var getQuotaPoliciesForDirectoryJson = JObject.Parse(getQuotaPoliciesForDirectoryResult);
                         var doesQuotaPolicyExists = getQuotaPoliciesForDirectoryJson["items"]!.Count() > 0;
 
-
-
                         if (!string.IsNullOrWhiteSpace(directoryId))
                         {
-
                             var arraySpaceUtilizationInfoResult = await client.GetArraySpaceInfo();
                             var arraySpaceUtilizationInfoJson = JObject.Parse(arraySpaceUtilizationInfoResult);
                             var totalCapacity = ByteSize.FromBytes(double.Parse(arraySpaceUtilizationInfoJson["items"]![0]!["capacity"]!.ToString()));
